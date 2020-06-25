@@ -1,0 +1,18 @@
+src:
+  host: "src-registry:5000"
+  user: ""
+  pass: ""
+  ssl: false
+dest:
+  host: "dest-registry:445"
+  user: ""
+  pass: ""
+  ssl: true
+
+##example of jfrog artifactory docker registry as source
+#src:
+#  host: "jfrog-artifactory.my.com/docker-v2-repotest"
+#  user: ""
+#  pass: ""
+#  ssl: true
+#  api: "jfrog-artifactory.my.com/artifactory/api/docker/docker-v2-repotest"
