@@ -1,14 +1,13 @@
 # docker-registry-mirror
-Mirror all docker repositories from one registry to another using skopeo.
-With this repository you can build a docker image containing skopeo and the registry mirror app written in go. Specify source and destination registries
-in config.yml, this application will get a list of all repositories from the source registry and use `skopeo sync`command to mirror them to the 
-destination registry. This process will be executed every $INTERVAL seconds.
+Containerized app to mirror all docker repositories from one registry to another. The Dockerfile includes `skopeo` and the registry mirror app.
+
+Specify source and destination registries in config.yml. The script will get a list of all repositories from the source registry and mirror them to the destination using `skopeo sync`. This process will be executed every $INTERVAL seconds.
 
 # Requirements
-- docker
-- docker-compose
+- docker >= 18.09.6
+- docker-compose >= 1.24.0
 
-# How to use
+# How to
 Start by building the docker image running
 ```
 $ ./build.sh
@@ -28,6 +27,7 @@ Set your values:
  * **pass:** if credentials are used, otherwise leave empty
  * **ssl:** true to use https, false for http
  * **api:** in case the api path for the registry differs, add it here
+ * **transport:** transport type. Options: docker (default), dir, yaml. See https://www.mankier.com/1/skopeo-sync
 
 Create directory for registry volume:
 ```
